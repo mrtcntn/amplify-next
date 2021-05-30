@@ -1,6 +1,8 @@
 import { Hub, HubCallback, HubPayload } from '@aws-amplify/core'
 const busListeners = {}
 
+// https://dev.to/uclusionhq/stopping-memory-leaks-in-aws-amplify-hub-3f9c
+
 /** Adds a listener to under the UNIQUE name, to the channel
  * If a listener with the name already exists, it will be removed
  * before this one is added
