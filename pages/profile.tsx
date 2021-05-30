@@ -1,16 +1,16 @@
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import Auth, { CognitoUser } from '@aws-amplify/auth'
 import { useState, useEffect } from 'react'
+import { NextPage } from 'next'
 
-function Profile() {
+const Profile: NextPage = () => {
   const [user, setUser] = useState<CognitoUser | null>(null)
   useEffect(() => {
     checkUser()
   }, [])
-  async function checkUser() {
+  async function checkUser(): Promise<void> {
     const user = await (Auth.currentAuthenticatedUser() as Promise<CognitoUser>)
     setUser(user)
-    
   }
   if (!user) return null
   return (
