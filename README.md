@@ -1,3 +1,5 @@
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app),
 following the steps from [Nader Dabit's Next.js Amplify Workshop](https://nextjs.org/). You can check it out to create your Amplify stack and run the project.
 
@@ -13,6 +15,6 @@ I have been inspired from [this solution](https://github.com/aws-amplify/amplify
 
 ## Issues and future work
 - There is still a memory leak that sometimes crashes the app on the development mode (OS: Windows 10, Node v14 LTS). That is most probably OS dependent and is stated as issues in multiple places ([here](https://github.com/dabit3/next.js-amplify-workshop/issues/5) and [here](https://github.com/aws-amplify/amplify-console/issues/1180)).
-- There is no restriction to use Image Optimization (a feature of Next.js). Further work may include it.
+- There is no restriction to use [Image Optimization](https://nextjs.org/docs/basic-features/image-optimization) (a feature of Next.js). Further work may include it.
 - An admin UI can be developed in the future, to practice features about user groups and user roles of AWS DynamoDB. 
 
