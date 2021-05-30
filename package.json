@@ -10,18 +10,25 @@
   "dependencies": {
     "@aws-amplify/api": "^4.0.1",
     "@aws-amplify/api-graphql": "^2.0.1",
+    "@aws-amplify/auth": "^4.0.1",
     "@aws-amplify/core": "^4.0.3",
     "@aws-amplify/ui-react": "^1.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.2.6",
+    "aws-amplify": "^4.0.3",
+    "easymde": "^2.15.0",
     "next": "10.2.3",
     "postcss": "^8.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "tailwindcss": "^2.1.2"
+    "react-markdown": "^6.0.2",
+    "react-simplemde-editor": "^5.0.1",
+    "tailwindcss": "^2.1.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.8",
+    "@types/uuid": "^8.3.0",
     "typescript": "^4.3.2"
   }
 }

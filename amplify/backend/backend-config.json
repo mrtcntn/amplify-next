@@ -12,9 +12,30 @@
               "description": "public"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authamplifynext555fba90"
+              }
+            }
+          ]
         }
       }
+    }
+  },
+  "auth": {
+    "amplifynext555fba90": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "amplifynextimages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
     }
   }
 }

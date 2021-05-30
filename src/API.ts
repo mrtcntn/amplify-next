@@ -6,11 +6,14 @@ export type CreatePostInput = {
   id?: string | null,
   title: string,
   content: string,
+  username?: string | null,
+  coverImage?: string | null,
 };
 
 export type ModelPostConditionInput = {
   title?: ModelStringInput | null,
   content?: ModelStringInput | null,
+  coverImage?: ModelStringInput | null,
   and?: Array< ModelPostConditionInput | null > | null,
   or?: Array< ModelPostConditionInput | null > | null,
   not?: ModelPostConditionInput | null,
@@ -61,6 +64,8 @@ export type Post = {
   id: string,
   title: string,
   content: string,
+  username?: string | null,
+  coverImage?: string | null,
   createdAt: string,
   updatedAt: string,
 };
@@ -69,6 +74,8 @@ export type UpdatePostInput = {
   id: string,
   title?: string | null,
   content?: string | null,
+  username?: string | null,
+  coverImage?: string | null,
 };
 
 export type DeletePostInput = {
@@ -79,6 +86,8 @@ export type ModelPostFilterInput = {
   id?: ModelIDInput | null,
   title?: ModelStringInput | null,
   content?: ModelStringInput | null,
+  username?: ModelStringInput | null,
+  coverImage?: ModelStringInput | null,
   and?: Array< ModelPostFilterInput | null > | null,
   or?: Array< ModelPostFilterInput | null > | null,
   not?: ModelPostFilterInput | null,
@@ -106,6 +115,12 @@ export type ModelPostConnection = {
   nextToken?: string | null,
 };
 
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
 export type CreatePostMutationVariables = {
   input: CreatePostInput,
   condition?: ModelPostConditionInput | null,
@@ -117,6 +132,8 @@ export type CreatePostMutation = {
     id: string,
     title: string,
     content: string,
+    username?: string | null,
+    coverImage?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -133,6 +150,8 @@ export type UpdatePostMutation = {
     id: string,
     title: string,
     content: string,
+    username?: string | null,
+    coverImage?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -149,6 +168,8 @@ export type DeletePostMutation = {
     id: string,
     title: string,
     content: string,
+    username?: string | null,
+    coverImage?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -164,6 +185,8 @@ export type GetPostQuery = {
     id: string,
     title: string,
     content: string,
+    username?: string | null,
+    coverImage?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -183,11 +206,42 @@ export type ListPostsQuery = {
       id: string,
       title: string,
       content: string,
+      username?: string | null,
+      coverImage?: string | null,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
+};
+
+export type PostsByUsernameQueryVariables = {
+  username?: string | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelPostFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type PostsByUsernameQuery = {
+  postsByUsername?:  {
+    __typename: "ModelPostConnection",
+    items?:  Array< {
+      __typename: "Post",
+      id: string,
+      title: string,
+      content: string,
+      username?: string | null,
+      coverImage?: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type OnCreatePostSubscriptionVariables = {
+  username?: string | null,
 };
 
 export type OnCreatePostSubscription = {
@@ -196,9 +250,15 @@ export type OnCreatePostSubscription = {
     id: string,
     title: string,
     content: string,
+    username?: string | null,
+    coverImage?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
+};
+
+export type OnUpdatePostSubscriptionVariables = {
+  username?: string | null,
 };
 
 export type OnUpdatePostSubscription = {
@@ -207,9 +267,15 @@ export type OnUpdatePostSubscription = {
     id: string,
     title: string,
     content: string,
+    username?: string | null,
+    coverImage?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
+};
+
+export type OnDeletePostSubscriptionVariables = {
+  username?: string | null,
 };
 
 export type OnDeletePostSubscription = {
@@ -218,6 +284,8 @@ export type OnDeletePostSubscription = {
     id: string,
     title: string,
     content: string,
+    username?: string | null,
+    coverImage?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
